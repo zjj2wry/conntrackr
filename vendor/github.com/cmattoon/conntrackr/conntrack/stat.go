@@ -16,18 +16,18 @@ func Stat(fname string) (*StatResultList, error) {
 
 	result := NewStatResultList()
 
+	i := 0
 	scanner := bufio.NewScanner(fd)
 	for scanner.Scan() {
 		fields := strings.Fields(scanner.Text())
 
 		sr, err := NewStatResultFromFields(i, fields)
-		if err != nil && !strings.Contains(err.Error(), "Probably a header") {
+		if err != nil && (i > 0 && strings.Contains(err.Error(), "Probably a header")) {
 			return nil, err
 		}
 
-		if sr != nil {
-			result.Append(sr)
-		}
+		result.Append(sr)
+		i++
 	}
 
 	if err := scanner.Err(); err != nil {

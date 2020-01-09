@@ -1,0 +1,6 @@
+# github.com/cmattoon/conntrackr v0.0.0-20190507024333-e908420c06e3
+github.com/cmattoon/conntrackr/cmd
+github.com/cmattoon/conntrackr/config
+github.com/cmattoon/conntrackr/conntrack
+github.com/cmattoon/conntrackr/internal/net
+github.com/cmattoon/conntrackr/internal/typeconv
